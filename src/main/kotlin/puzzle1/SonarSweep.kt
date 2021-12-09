@@ -10,7 +10,7 @@ fun main() {
 
 
 class SonarSweep {
-    private val input = SonarSweep::class.java.getResource("/input/puzzle1.csv")
+    private val input = SonarSweep::class.java.getResource("/input/puzzle1.txt")
         ?.readText()
         ?.split("\n")
         ?.filter { it.isNotEmpty() }

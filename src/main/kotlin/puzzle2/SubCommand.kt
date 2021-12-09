@@ -16,7 +16,7 @@ enum class Command {
 data class Position (val horizontal: Int, val depth: Int, val aim: Int = 0)
 
 class SubCommand {
-    private val input: List<Pair<Command, Int>> = SubCommand::class.java.getResource("/input/puzzle2.csv")
+    private val input: List<Pair<Command, Int>> = SubCommand::class.java.getResource("/input/puzzle2.txt")
         ?.readText()
         ?.split("\n")
         ?.filter { it.isNotEmpty() }

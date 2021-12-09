@@ -39,7 +39,7 @@ private fun List<List<Int>>.printLayout():String {
 }
 
 class HydrothermalVentDetector {
-    private val input: List<Line> = HydrothermalVentDetector::class.java.getResource("/input/puzzle5.csv")
+    private val input: List<Line> = HydrothermalVentDetector::class.java.getResource("/input/puzzle5.txt")
         ?.readText()
         ?.split("\n")
         ?.map { lineString ->

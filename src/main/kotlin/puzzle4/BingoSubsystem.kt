@@ -47,7 +47,7 @@ fun List<Board>.displayBoardsLayouts(): String {
 
 
 class BingoSubsystem {
-    private val input = BingoSubsystem::class.java.getResource("/input/puzzle4.csv")
+    private val input = BingoSubsystem::class.java.getResource("/input/puzzle4.txt")
         ?.readText()
         ?.split("\n\n")
         ?: listOf()

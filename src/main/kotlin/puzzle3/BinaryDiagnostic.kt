@@ -12,7 +12,7 @@ fun main() {
 }
 
 class BinaryDiagnostic {
-    private val input: List<List<Int>> = BinaryDiagnostic::class.java.getResource("/input/puzzle3.csv")
+    private val input: List<List<Int>> = BinaryDiagnostic::class.java.getResource("/input/puzzle3.txt")
         ?.readText()
         ?.split("\n")
         ?.filter { it.isNotEmpty() }

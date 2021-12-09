@@ -12,7 +12,7 @@ fun main() {
 }
 
 class LanternFishModeler {
-    private val input = LanternFishModeler::class.java.getResource("/input/puzzle6.csv")
+    private val input = LanternFishModeler::class.java.getResource("/input/puzzle6.txt")
         ?.readText()
         ?.split(",")
         ?.groupBy { it.toInt() }

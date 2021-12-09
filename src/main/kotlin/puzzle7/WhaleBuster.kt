@@ -16,7 +16,7 @@ fun main() {
 }
 
 class WhaleBuster {
-    private val input = WhaleBuster::class.java.getResource("/input/puzzle7.csv")
+    private val input = WhaleBuster::class.java.getResource("/input/puzzle7.txt")
         ?.readText()
         ?.split(",")
         ?.map { it.toInt() }
