@@ -82,7 +82,7 @@ class OctopusEnergizer {
                         if (octopus.energyLevel > 9 && !octopus.hasFlashedDuringStep) {
                             octopus.hasFlashedDuringStep = true
                             octopus.energyLevel = 0
-                            propagateFlashingEnergy(grid, i, j)
+                            propagateFlashingEnergy(grid, i, j, 1)
                             someoneFlashed = true
                             flashCounter++
                         }
@@ -100,22 +100,18 @@ class OctopusEnergizer {
             grid.flatten().forEach { it.hasFlashedDuringStep = false }
         }
 
-        private fun propagateFlashingEnergy(grid: List<List<Octopus>>, i: Int, j: Int) {
+        private fun propagateFlashingEnergy(grid: List<List<Octopus>>, i: Int, j: Int, propagationRate: Int) {
             val energyPropagation = { octopus: Octopus ->
                 if (!octopus.hasFlashedDuringStep) {
                     octopus.energyLevel++
                 }
             }
-            grid.getOrNull(i - 1)?.getOrNull(j - 1)?.run(energyPropagation)
-            grid.getOrNull(i - 1)?.getOrNull(j)?.run(energyPropagation)
-            grid.getOrNull(i - 1)?.getOrNull(j + 1)?.run(energyPropagation)
 
-            grid.getOrNull(i)?.getOrNull(j - 1)?.run(energyPropagation)
-            grid.getOrNull(i)?.getOrNull(j + 1)?.run(energyPropagation)
-
-            grid.getOrNull(i + 1)?.getOrNull(j - 1)?.run(energyPropagation)
-            grid.getOrNull(i + 1)?.getOrNull(j)?.run(energyPropagation)
-            grid.getOrNull(i + 1)?.getOrNull(j + 1)?.run(energyPropagation)
+            ((i - propagationRate)..(i + propagationRate)).forEach { col ->
+                ((j - propagationRate)..(j + propagationRate)).forEach { row ->
+                    grid.getOrNull(col)?.getOrNull(row)?.run(energyPropagation)
+                }
+            }
         }
 
         private fun generateOctopusGrid(layout: List<String>) = layout.map {
